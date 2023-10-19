@@ -1,22 +1,24 @@
-﻿#include <iostream>
-#include "FileHandler.h"
+﻿#include "FileHandler.h"
+#include <iostream>
 
 using namespace std;
 
 int choice;
+int run = 1;
 
 int main()
 {
     FileHandler fHandler;
     
     // menu wyswietlane ciagle
-    while (true)
+    while (run)
     {
         cout << "MENU:\n";
         cout << "1. Wczytaj dane z pliku\n";
         cout << "2. Wygeneruj losowe dane\n";
         cout << "3. Wyswietl dane\n";
         cout << "4. Uruchom algorytm\n";
+        cout << "5. Zakoncz\n";
 
         cin >> choice;
         system("CLS");
@@ -26,10 +28,10 @@ int main()
         {
             cout << "Podaj nazwe pliku do wczytania:\n";
             string filename;
-            filename = "test.txt";
+            filename = "data2.txt";
             //cin >> filename;
 
-            fHandler.openFile("plik.txt");
+            fHandler.openFile(filename);
         }
             break;
         case 2:
@@ -46,7 +48,7 @@ int main()
         {
             cout << "Podaj nazwe pliku do wyswietlenia:\n";
             string filename;
-            filename = "data1.txt";
+            filename = "data2.txt";
             //cin >> filename;
             
             fHandler.print(filename);
@@ -54,6 +56,10 @@ int main()
             break;
         case 4:
             cout << "Uruchamianie algorytmu...\n";
+            break;
+        case 5:
+            cout << "Koniec programu\n";
+            run = 0;
             break;
         default:
             cout << "Nieprawidlowy numer!\n";

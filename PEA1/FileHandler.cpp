@@ -1,5 +1,7 @@
 #include "FileHandler.h"
+#include "AdjacencyMatrix.h"
 #include <iostream>
+#include "AdjacencyMatrix.h"
 #include <fstream>
 #include <string>
 #include <time.h>
@@ -7,19 +9,23 @@
 
 using namespace std;
 
-/*
-* otwieranie pliku
-*/
+
+//------------------------------------------------------------------------------------------------------------------------------------
 void FileHandler::openFile(string filename)
 {
 	cout << "Otwieranie pliku tekstowego \"" << filename << "\"\n";
+	AdjacencyMatrix adMat;
+	file.open(filename, ios::in);
+	if (file.is_open())
+	{
+		adMat.fillFromFile(&file);
+		cout << "Przekazanie do wypelnienia\n";
+	}
+	else cout << "Nie udalo sie otworzyc pliku!\n";
+	file.close();
 }
+//------------------------------------------------------------------------------------------------------------------------------------
 
-/*
-* zapisywnie do pliku "data1.txt"
-* N
-* macierz z losowymi wartosciami 1-100. jeœli i == j to -1
-*/
 void FileHandler::generate(int N)
 {
 	cout << "Generowanie pliku tekstowego dla " << N << " wierzcholkow\n";
@@ -43,10 +49,8 @@ void FileHandler::generate(int N)
 	else cout << "Nie udalo sie otworzyc pliku!\n";
 	file.close();
 }
+//------------------------------------------------------------------------------------------------------------------------------------
 
-/*
-* 
-*/
 void FileHandler::print(string filename)
 {
 	cout << "Wyswietlanie zawartosci pliku \"" << filename << "\"\n";
