@@ -2,6 +2,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <time.h>
+#include <cstdlib>
 
 using namespace std;
 
@@ -24,7 +26,19 @@ void FileHandler::generate(int N)
 	file.open("data1.txt", ios::out);
 	if (file.is_open())
 	{
-		file << "test";
+		srand(time(NULL));
+		file << N << "\n";
+		for (int i = 0; i < N; i++) // linie
+		{
+			for (int j = 0; j < N; j++) // kolumny
+			{
+				if 
+					(i == j) file << "-1\t";
+				else
+					file << rand() % 100 + 1 << "\t";
+			}
+			file << "\n";
+		}
 	}
 	else cout << "Nie udalo sie otworzyc pliku!\n";
 	file.close();

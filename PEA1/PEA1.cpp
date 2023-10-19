@@ -26,8 +26,8 @@ int main()
         {
             cout << "Podaj nazwe pliku do wczytania:\n";
             string filename;
-            //filename = "test.txt";
-            cin >> filename;
+            filename = "test.txt";
+            //cin >> filename;
 
             fHandler.openFile("plik.txt");
         }
@@ -36,8 +36,8 @@ int main()
         {
             cout << "Ile wierzcholkow?\n";
             int N;
-            //N = 5;
-            cin >> N;
+            N = 5;
+            //cin >> N;
 
             fHandler.generate(N);
         }
@@ -46,8 +46,8 @@ int main()
         {
             cout << "Podaj nazwe pliku do wyswietlenia:\n";
             string filename;
-            //filename = "test.txt";
-            cin >> filename;
+            filename = "data1.txt";
+            //cin >> filename;
             
             fHandler.print(filename);
         }
