@@ -23,16 +23,34 @@ int main()
         switch (choice)
         {
         case 1:
-            cout << "Wczytywanie danych z pliku...\n";
+        {
+            cout << "Podaj nazwe pliku do wczytania:\n";
+            string filename;
+            //filename = "test.txt";
+            cin >> filename;
+
             fHandler.openFile("plik.txt");
+        }
             break;
         case 2:
-            cout << "Generowanie danych...\n";
-            fHandler.generate(5);
+        {
+            cout << "Ile wierzcholkow?\n";
+            int N;
+            //N = 5;
+            cin >> N;
+
+            fHandler.generate(N);
+        }
             break;
         case 3:
-            cout << "Wyswietlanie danych...\n";
-            fHandler.print("plik.txt");
+        {
+            cout << "Podaj nazwe pliku do wyswietlenia:\n";
+            string filename;
+            //filename = "test.txt";
+            cin >> filename;
+            
+            fHandler.print(filename);
+        }
             break;
         case 4:
             cout << "Uruchamianie algorytmu...\n";
