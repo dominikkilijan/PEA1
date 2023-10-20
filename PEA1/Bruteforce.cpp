@@ -6,39 +6,57 @@
 using namespace std;
 
 //------------------------------------------------------------------------------------------------------------------------------------
-Bruteforce::Bruteforce(int n, AdjacencyMatrix* m)
+Bruteforce::Bruteforce(int n, int** m)
 {
 	cout << "Bruteforce konstruktor\n";
 	N = n;
+	matrix = m;
 	permutations = factorials[N];
-	matrix = *m;
 	vertices = new int [N];
 	for (int i = 0; i < N; i++)
 	{
 		vertices[i] = i;
 	}
-	do {
-		for (int i = 0; i < N; i++)
-		{
-			cout << vertices[i] << "  ";
-		}
-		cout << "\n";
-	} while (std::next_permutation(vertices, vertices + N));
 }
 //------------------------------------------------------------------------------------------------------------------------------------
 void Bruteforce::TSPBrute()
 {
+	currentPath = new int[N];
+	bestPath = new int[N];
 	do {
-		sum = 0;
+		int currentSum = 0;
 
 		for (int i = 0; i < N; i++)
 		{
-			//cout << vertices[i] << "  ";
-			matrix.printAdjacencyMatrix();
-
+			currentSum += matrix[vertices[i]][vertices[(i + 1) % N]];
+			if (bestSum > currentSum) // dla bestSum<sum to nie ma sensu liczyc bo i tak bedzie gorzej
+			{
+				currentPath[i] = vertices[i];
+			}
 		}
-		cout << "\n";
+		if (bestSum > currentSum)
+		{
+			bestSum = currentSum;
+			for (int i = 0; i < N; i++)
+			{
+				bestPath[i] = currentPath[i];
+			}
+		}
 	} while (std::next_permutation(vertices, vertices + N));
+	cout << "bestSum = " << bestSum << "\nbestPath: ";
+	for (int i = 0; i < N; i++)
+	{
+		cout << bestPath[i] << " -> ";
+	}
+	cout << bestPath[0] << "\n";
+
+	// czyszczenie
+	delete[] bestPath;
+	delete[] currentPath;
+	bestPath = nullptr;
+	currentPath = nullptr;
+
+
 }
 //------------------------------------------------------------------------------------------------------------------------------------
 

@@ -59,7 +59,7 @@ void AdjacencyMatrix::fillFromFile(fstream* file)
 			}
 		}
 		printAdjacencyMatrix();
-		Bruteforce brute(N);
+		Bruteforce brute(N, matrix);
 		brute.TSPBrute();
 	}
 	else cout << "Nie udalo sie otworzyc pliku! (w AdjancencyMatrix)\n";

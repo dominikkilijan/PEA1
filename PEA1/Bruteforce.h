@@ -4,7 +4,7 @@
 class Bruteforce
 {
 	public:
-		Bruteforce(int, AdjacencyMatrix*);
+		Bruteforce(int, int**);
 
 		void TSPBrute();
 		unsigned long long factorials[21] = { 1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800, 39916800, 479001600, 
@@ -14,14 +14,15 @@ class Bruteforce
 
 	private:
 		int* bestPath;
-		int bestSum = -1;
-		int* path;
-		int sum;
+		int bestSum = 2147483647; // najwieksza dostepna wartosc
+		int* currentPath;
 
 		int* vertices;
 		int N;
 		unsigned long long permutations;
-		AdjacencyMatrix &matrix;
+
+		int** matrix;
+
 
 };
 

@@ -48,7 +48,7 @@ int main()
         {
             cout << "Podaj nazwe pliku do wczytania:\n";
             string filename;
-            filename = "data2.txt";
+            filename = "data1.txt";
             //cin >> filename;
 
             fHandler.openFile(filename);
