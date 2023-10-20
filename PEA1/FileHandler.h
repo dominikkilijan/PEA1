@@ -7,9 +7,9 @@ using namespace std;
 class FileHandler
 {
 	public:
-		void openFile(string); // otwieranie pliku i zapisywanie zawartosci do macierzy
-		void generate(int); // generowanie wartosci do pliku
-		void print(string); // wyswietla zawartosc pliku
+		void openFile(string);
+		void generate(int); 
+		void print(string); 
 
 	private:
 		fstream file;

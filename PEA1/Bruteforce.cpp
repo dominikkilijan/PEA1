@@ -11,15 +11,11 @@ using namespace std;
 //------------------------------------------------------------------------------------------------------------------------------------
 Bruteforce::Bruteforce(int n, int** m)
 {
-	cout << "Bruteforce konstruktor\n";
 	N = n;
 	matrix = m;
-	permutations = factorials[N];
 	vertices = new int [N];
 	for (int i = 0; i < N; i++)
-	{
 		vertices[i] = i;
-	}
 }
 //------------------------------------------------------------------------------------------------------------------------------------
 long double Bruteforce::TSPBrute()
@@ -53,14 +49,9 @@ long double Bruteforce::TSPBrute()
 	} while (std::next_permutation(vertices, vertices + N));
 	
 	elapsed = read_QPC() - start;
-	cout << "elapsed = " << elapsed << "\n";
-	cout << "Czas wykonania w ms: " << setprecision(10) << (1000.0 * elapsed) / frequency << endl;
-	cout << "(1000.0 * elapsed) / frequency = " << (1000.0 * elapsed) / frequency << "\n";
 	long double timeElapsed;
 	timeElapsed = ((1000.0 * elapsed) / frequency);
 	
-	cout << "timeElapsed = " << timeElapsed << "\n";
-
 	cout << "bestSum = " << bestSum << "\nbestPath: ";
 	for (int i = 0; i < N; i++)
 	{

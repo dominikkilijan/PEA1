@@ -9,7 +9,6 @@ using namespace std;
 //------------------------------------------------------------------------------------------------------------------------------------
 AdjacencyMatrix::~AdjacencyMatrix()
 {
-	cout << "Destruktor AdjacencyMatrix\n";
 	deleteAdjacencyMatrix();
 }
 //------------------------------------------------------------------------------------------------------------------------------------
@@ -29,7 +28,6 @@ void AdjacencyMatrix::createAdjacencyMatrix()
 
 void AdjacencyMatrix::deleteAdjacencyMatrix()
 {
-	cout << "Usuwanie macierzy\n";
 	if (matrix != nullptr)
 	{
 		for (int i = 0; i < N; i++)
@@ -60,9 +58,12 @@ void AdjacencyMatrix::fillFromFile(fstream* file)
 			}
 		}
 		printAdjacencyMatrix();
-		Bruteforce brute(N, matrix);
-		sumElapsed += brute.TSPBrute();
-		cout << "sumElapsed = " << sumElapsed << "\n";
+		for (int i = 0; i < 2; i++)
+		{
+			Bruteforce brute(N, matrix);
+			sumElapsed += brute.TSPBrute();
+		}
+
 		cout << "Czas wykonania w ms: " << setprecision(10) << sumElapsed << endl;
 	}
 	else cout << "Nie udalo sie otworzyc pliku! (w AdjancencyMatrix)\n";
@@ -71,7 +72,6 @@ void AdjacencyMatrix::fillFromFile(fstream* file)
 
 void AdjacencyMatrix::printAdjacencyMatrix()
 {
-	cout << "Wyswietlanie macierzy " << N << "-elementowej\n";
 	for (int i = 0; i < N; i++)
 	{
 		for (int j = 0; j < N; j++)
