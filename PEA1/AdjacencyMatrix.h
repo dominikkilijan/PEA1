@@ -16,7 +16,7 @@ class AdjacencyMatrix
 		int N;
 		int** matrix;
 
-		void createAdjacencyMatrix(int);
+		void createAdjacencyMatrix();
 		void deleteAdjecencyMatrix();
 
 };

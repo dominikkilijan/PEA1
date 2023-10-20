@@ -5,11 +5,8 @@ using namespace std;
 
 
 //------------------------------------------------------------------------------------------------------------------------------------
-void AdjacencyMatrix::createAdjacencyMatrix(int n)
+void AdjacencyMatrix::createAdjacencyMatrix()
 {
-	N = n;
-	cout << "Tworzenie macierzy z " << N << " wierzcholkami\n";
-
 	matrix = new int* [N];
 	for (int i = 0; i < N; i++)
 	{
@@ -24,7 +21,14 @@ void AdjacencyMatrix::createAdjacencyMatrix(int n)
 
 void AdjacencyMatrix::deleteAdjecencyMatrix()
 {
-	cout << "Usuwanie macierzy\n";
+	for (int i = 0; i < N; i++)
+	{
+		for (int j = 0; j < N; j++)
+		{
+			delete[] matrix[i];
+		}
+		delete[] matrix;
+	}
 }
 //------------------------------------------------------------------------------------------------------------------------------------
 
@@ -34,9 +38,17 @@ void AdjacencyMatrix::fillFromFile(fstream* file)
 	{
 		int val;
 		*file >> N;
-		cout << "N po \"*file >> N\" = " << N << "\n";
-		createAdjacencyMatrix(4); // to do zmiany. N ma byc wczytywane z pliku. Wtedy tez mozna bedzie usunac N = n z createAdMat
-		cout << "Wypelnianie macierzy dziala\n";
+
+		createAdjacencyMatrix();
+
+		for (int i = 0; i < N; i++)
+		{
+			for (int j = 0; j < N; j++)
+			{
+				*file >> val;
+				matrix[i][j] = val;
+			}
+		}
 		printAdjacencyMatrix();
 	}
 	else cout << "Nie udalo sie otworzyc pliku! (w AdjancencyMatrix)\n";
