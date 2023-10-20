@@ -1,4 +1,5 @@
 ﻿#include "FileHandler.h"
+#include "Bruteforce.h"
 #include <iostream>
 
 using namespace std;
@@ -55,7 +56,13 @@ int main()
         }
             break;
         case 4:
+        {
             cout << "Uruchamianie algorytmu...\n";
+            int N;
+            cin >> N;
+            Bruteforce bruteforce(N);
+            bruteforce.factorial();
+        }
             break;
         case 5:
             cout << "Koniec programu\n";
