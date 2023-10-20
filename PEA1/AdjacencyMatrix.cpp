@@ -1,4 +1,5 @@
 #include "AdjacencyMatrix.h"
+#include "Bruteforce.h"
 #include <iostream>
 
 using namespace std;
@@ -7,7 +8,7 @@ using namespace std;
 //------------------------------------------------------------------------------------------------------------------------------------
 AdjacencyMatrix::~AdjacencyMatrix()
 {
-	cout << "Destruktor AdjacencyMatrix";
+	cout << "Destruktor AdjacencyMatrix\n";
 	deleteAdjacencyMatrix();
 }
 //------------------------------------------------------------------------------------------------------------------------------------
@@ -58,6 +59,8 @@ void AdjacencyMatrix::fillFromFile(fstream* file)
 			}
 		}
 		printAdjacencyMatrix();
+		Bruteforce brute(N);
+		brute.TSPBrute();
 	}
 	else cout << "Nie udalo sie otworzyc pliku! (w AdjancencyMatrix)\n";
 }

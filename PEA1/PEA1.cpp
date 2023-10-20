@@ -14,28 +14,17 @@ int main()
     // menu wyswietlane ciagle
     while (run)
     {
-        cout << "MENU:\n";
-        cout << "1. Wczytaj dane z pliku\n";
-        cout << "2. Wygeneruj losowe dane\n";
-        cout << "3. Wyswietl dane\n";
-        cout << "4. Uruchom algorytm\n";
-        cout << "5. Zakoncz\n";
+        cout << "MENU:\n";;
+        cout << "1. Wygeneruj losowe dane\n";
+        cout << "2. Wyswietl dane\n";
+        cout << "3. Uruchom algorytm\n";
+        cout << "4. Zakoncz\n";
 
         cin >> choice;
         system("CLS");
         switch (choice)
         {
         case 1:
-        {
-            cout << "Podaj nazwe pliku do wczytania:\n";
-            string filename;
-            filename = "data2.txt";
-            //cin >> filename;
-
-            fHandler.openFile(filename);
-        }
-            break;
-        case 2:
         {
             cout << "Ile wierzcholkow?\n";
             int N;
@@ -45,7 +34,7 @@ int main()
             fHandler.generate(N);
         }
             break;
-        case 3:
+        case 2:
         {
             cout << "Podaj nazwe pliku do wyswietlenia:\n";
             string filename;
@@ -55,19 +44,31 @@ int main()
             fHandler.print(filename);
         }
             break;
-        case 4:
+        case 3:
         {
-            cout << "Uruchamianie algorytmu...\n";
-            int N;
-            cin >> N;
-            Bruteforce bruteforce(N);
-            bruteforce.factorial();
+            cout << "Podaj nazwe pliku do wczytania:\n";
+            string filename;
+            filename = "data2.txt";
+            //cin >> filename;
+
+            fHandler.openFile(filename);
         }
-            break;
-        case 5:
+        break;
+        case 4:
             cout << "Koniec programu\n";
             run = 0;
             break;
+
+            //case 5:
+            //{
+            //    cout << "Uruchamianie algorytmu...\n";
+            //    int N;
+            //    cin >> N;
+            //    Bruteforce bruteforce(N);
+            //    //bruteforce.factorial();
+            //}
+            //    break;
+
         default:
             cout << "Nieprawidlowy numer!\n";
             break;

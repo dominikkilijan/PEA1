@@ -1,4 +1,5 @@
 #pragma once
+#include "Bruteforce.h"
 #include <fstream>
 
 using namespace std;
