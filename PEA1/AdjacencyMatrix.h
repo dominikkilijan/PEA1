@@ -17,6 +17,7 @@ class AdjacencyMatrix
 	private:
 		int N;
 		int** matrix;
+		long double sumElapsed;
 
 
 };

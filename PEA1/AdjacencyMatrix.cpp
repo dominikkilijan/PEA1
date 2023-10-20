@@ -1,6 +1,7 @@
 #include "AdjacencyMatrix.h"
 #include "Bruteforce.h"
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -60,7 +61,9 @@ void AdjacencyMatrix::fillFromFile(fstream* file)
 		}
 		printAdjacencyMatrix();
 		Bruteforce brute(N, matrix);
-		brute.TSPBrute();
+		sumElapsed += brute.TSPBrute();
+		cout << "sumElapsed = " << sumElapsed << "\n";
+		cout << "Czas wykonania w ms: " << setprecision(10) << sumElapsed << endl;
 	}
 	else cout << "Nie udalo sie otworzyc pliku! (w AdjancencyMatrix)\n";
 }

@@ -38,7 +38,7 @@ int main()
         {
             cout << "Podaj nazwe pliku do wyswietlenia:\n";
             string filename;
-            filename = "data2.txt";
+            filename = "test.txt";
             //cin >> filename;
             
             fHandler.print(filename);
@@ -48,7 +48,7 @@ int main()
         {
             cout << "Podaj nazwe pliku do wczytania:\n";
             string filename;
-            filename = "data1.txt";
+            filename = "data2.txt";
             //cin >> filename;
 
             fHandler.openFile(filename);
@@ -58,16 +58,6 @@ int main()
             cout << "Koniec programu\n";
             run = 0;
             break;
-
-            //case 5:
-            //{
-            //    cout << "Uruchamianie algorytmu...\n";
-            //    int N;
-            //    cin >> N;
-            //    Bruteforce bruteforce(N);
-            //    //bruteforce.factorial();
-            //}
-            //    break;
 
         default:
             cout << "Nieprawidlowy numer!\n";
