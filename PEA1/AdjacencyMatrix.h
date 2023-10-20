@@ -6,18 +6,17 @@ using namespace std;
 class AdjacencyMatrix
 {
 	public:
-		//AdjacencyMatrix();
-		//virtual ~AdjacencyMatrix();
+		~AdjacencyMatrix();
 
 		void fillFromFile(fstream*);
 		void printAdjacencyMatrix();
+		void deleteAdjacencyMatrix();
+		void createAdjacencyMatrix();
 
 	private:
 		int N;
 		int** matrix;
 
-		void createAdjacencyMatrix();
-		void deleteAdjecencyMatrix();
 
 };
 

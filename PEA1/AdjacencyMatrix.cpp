@@ -5,6 +5,11 @@ using namespace std;
 
 
 //------------------------------------------------------------------------------------------------------------------------------------
+AdjacencyMatrix::~AdjacencyMatrix()
+{
+	deleteAdjacencyMatrix();
+}
+//------------------------------------------------------------------------------------------------------------------------------------
 void AdjacencyMatrix::createAdjacencyMatrix()
 {
 	matrix = new int* [N];
@@ -19,15 +24,17 @@ void AdjacencyMatrix::createAdjacencyMatrix()
 }
 //------------------------------------------------------------------------------------------------------------------------------------
 
-void AdjacencyMatrix::deleteAdjecencyMatrix()
+void AdjacencyMatrix::deleteAdjacencyMatrix()
 {
-	for (int i = 0; i < N; i++)
+	cout << "Usuwanie macierzy\n";
+	if (matrix != nullptr)
 	{
-		for (int j = 0; j < N; j++)
+		for (int i = 0; i < N; i++)
 		{
 			delete[] matrix[i];
 		}
 		delete[] matrix;
+		matrix = nullptr;
 	}
 }
 //------------------------------------------------------------------------------------------------------------------------------------
