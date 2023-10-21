@@ -28,18 +28,22 @@ int main()
         {
             cout << "Ile wierzcholkow?\n";
             int N;
-            N = 5;
-            //cin >> N;
+            //N = 5;
+            cin >> N;
+            cout << "Podaj nazwe pliku wraz z rozszerzeniem:\n";
+            string filename;
+            filename = "test.txt";
+            cin >> filename;
 
-            fHandler.generate(N);
+            fHandler.generate(N, filename);
         }
             break;
         case 2:
         {
             cout << "Podaj nazwe pliku do wyswietlenia:\n";
             string filename;
-            filename = "test.txt";
-            //cin >> filename;
+            //filename = "test.txt";
+            cin >> filename;
             
             fHandler.print(filename);
         }
@@ -48,8 +52,8 @@ int main()
         {
             cout << "Podaj nazwe pliku do wczytania:\n";
             string filename;
-            filename = "data2.txt";
-            //cin >> filename;
+            //filename = "data2.txt";
+            cin >> filename;
 
             fHandler.openFile(filename);
         }

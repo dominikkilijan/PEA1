@@ -58,13 +58,13 @@ void AdjacencyMatrix::fillFromFile(fstream* file)
 			}
 		}
 		printAdjacencyMatrix();
-		for (int i = 0; i < 2; i++)
+		for (int i = 0; i < 1; i++)
 		{
 			Bruteforce brute(N, matrix);
 			sumElapsed += brute.TSPBrute();
 		}
 
-		cout << "Czas wykonania w ms: " << setprecision(10) << sumElapsed << endl;
+		cout << "Sredni czas wykonania w ms: " << setprecision(10) << sumElapsed << endl;
 	}
 	else cout << "Nie udalo sie otworzyc pliku! (w AdjancencyMatrix)\n";
 }

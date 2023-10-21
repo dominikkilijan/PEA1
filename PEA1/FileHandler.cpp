@@ -23,9 +23,9 @@ void FileHandler::openFile(string filename)
 }
 //------------------------------------------------------------------------------------------------------------------------------------
 
-void FileHandler::generate(int N)
+void FileHandler::generate(int N, string filename)
 {
-	file.open("data1.txt", ios::out);
+	file.open(filename, ios::out);
 	if (file.is_open())
 	{
 		srand(time(NULL));

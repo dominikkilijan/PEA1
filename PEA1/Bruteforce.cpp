@@ -33,9 +33,9 @@ long double Bruteforce::TSPBrute()
 		for (int i = 0; i < N; i++)
 		{
 			currentSum += matrix[vertices[i]][vertices[(i + 1) % N]];
-			if (bestSum > currentSum) // dla bestSum<sum to nie ma sensu liczyc bo i tak bedzie gorzej
+			if (bestSum < currentSum) // jeœli bestSum<sum to nie ma sensu liczyc bo i tak bedzie gorzej
 			{
-				currentPath[i] = vertices[i];
+				break;
 			}
 		}
 		if (bestSum > currentSum)
@@ -43,7 +43,7 @@ long double Bruteforce::TSPBrute()
 			bestSum = currentSum;
 			for (int i = 0; i < N; i++)
 			{
-				bestPath[i] = currentPath[i];
+				bestPath[i] = vertices[i];
 			}
 		}
 	} while (std::next_permutation(vertices, vertices + N));

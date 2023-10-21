@@ -8,7 +8,7 @@ class FileHandler
 {
 	public:
 		void openFile(string);
-		void generate(int); 
+		void generate(int, string); 
 		void print(string); 
 
 	private:
