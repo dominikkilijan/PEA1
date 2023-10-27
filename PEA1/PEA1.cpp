@@ -21,14 +21,13 @@ int main()
         cout << "4. Zakoncz\n";
 
         cin >> choice;
-        system("CLS");
+        system("CLS"); // czyszczenie ekranu
         switch (choice)
         {
         case 1:
         {
             cout << "Ile wierzcholkow?\n";
             int N;
-            //N = 5;
             cin >> N;
             cout << "Podaj nazwe pliku wraz z rozszerzeniem:\n";
             string filename;
@@ -42,7 +41,6 @@ int main()
         {
             cout << "Podaj nazwe pliku do wyswietlenia:\n";
             string filename;
-            //filename = "test.txt";
             cin >> filename;
             
             fHandler.print(filename);
@@ -52,7 +50,6 @@ int main()
         {
             cout << "Podaj nazwe pliku do wczytania:\n";
             string filename;
-            //filename = "data2.txt";
             cin >> filename;
 
             fHandler.openFile(filename);

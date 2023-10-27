@@ -23,22 +23,22 @@ long double Bruteforce::TSPBrute()
 	currentPath = new int[N];
 	bestPath = new int[N];
 
-	long long int frequency, start, elapsed;
+	long long int frequency, start, elapsed; // zmienne zwiazane z pomiarem czasu
 	QueryPerformanceFrequency((LARGE_INTEGER*)&frequency);
-	start = read_QPC();
+	start = read_QPC(); // rozpoczecie pomiaru czasu
 	
 	do {
-		int currentSum = 0;
+		int currentSum = 0; // zmienna do zliczania aktualnej dlugosci testowanej sciezki
 
 		for (int i = 0; i < N; i++)
 		{
-			currentSum += matrix[vertices[i]][vertices[(i + 1) % N]];
+			currentSum += matrix[vertices[i]][vertices[(i + 1) % N]]; // dwa kolejne wierzcholki permutacji. W sytuacji granicznej, ostatni wierzcholek i punkt poczatkowy
 			if (bestSum < currentSum) // jeœli bestSum<sum to nie ma sensu liczyc bo i tak bedzie gorzej
 			{
 				break;
 			}
 		}
-		if (bestSum > currentSum)
+		if (bestSum > currentSum) // jesli znaleziona zostala lepsza sciezka
 		{
 			bestSum = currentSum;
 			for (int i = 0; i < N; i++)
@@ -48,11 +48,12 @@ long double Bruteforce::TSPBrute()
 		}
 	} while (std::next_permutation(vertices, vertices + N));
 	
-	elapsed = read_QPC() - start;
+	elapsed = read_QPC() - start; // koniec pomiaru czasu
 	long double timeElapsed;
 	timeElapsed = ((1000.0 * elapsed) / frequency);
 	
 	cout << "bestSum = " << bestSum << "\nbestPath: ";
+	// wyswietlenie najoptymalniejszej sciezki
 	for (int i = 0; i < N; i++)
 	{
 		cout << bestPath[i] << " -> ";
@@ -68,6 +69,7 @@ long double Bruteforce::TSPBrute()
 	return timeElapsed;
 }
 //------------------------------------------------------------------------------------------------------------------------------------
+// metoda do precyzyjnego pomiaru czasu
 long long int Bruteforce::read_QPC()
 {
 	LARGE_INTEGER count;

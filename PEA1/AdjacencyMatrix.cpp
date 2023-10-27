@@ -12,6 +12,7 @@ AdjacencyMatrix::~AdjacencyMatrix()
 	deleteAdjacencyMatrix();
 }
 //------------------------------------------------------------------------------------------------------------------------------------
+// utworzenie macierzy o wymiarach n na n. Macierz wypelniona jest wartosciami -1
 void AdjacencyMatrix::createAdjacencyMatrix()
 {
 	matrix = new int* [N];
@@ -45,10 +46,11 @@ void AdjacencyMatrix::fillFromFile(fstream* file)
 	if (file->is_open())
 	{
 		int val;
-		*file >> N;
+		*file >> N; // pierwsza liczba w pliku oznacza liczbe wierzcholkow
 
 		createAdjacencyMatrix();
 
+		// uzupelnienie macietrzy
 		for (int i = 0; i < N; i++)
 		{
 			for (int j = 0; j < N; j++)
@@ -57,7 +59,10 @@ void AdjacencyMatrix::fillFromFile(fstream* file)
 				matrix[i][j] = val;
 			}
 		}
+		// wyswietlenie wypelnionej macierzy
 		printAdjacencyMatrix();
+
+		// uruchomienie algorytmu. Na etapie mierzenia czasow modyfikowana byla liczba iteracji w petli for
 		for (int i = 0; i < 1; i++)
 		{
 			Bruteforce brute(N, matrix);

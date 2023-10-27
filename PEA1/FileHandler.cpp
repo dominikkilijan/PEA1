@@ -17,7 +17,7 @@ void FileHandler::openFile(string filename)
 	AdjacencyMatrix adMat;
 	file.open(filename, ios::in);
 	if (file.is_open())
-		adMat.fillFromFile(&file);
+		adMat.fillFromFile(&file); // wypelnianie macierzy sasiedztwa
 	else cout << "Nie udalo sie otworzyc pliku!\n";
 	file.close();
 }
@@ -29,15 +29,15 @@ void FileHandler::generate(int N, string filename)
 	if (file.is_open())
 	{
 		srand(time(NULL));
-		file << N << "\n";
-		for (int i = 0; i < N; i++) // linie
+		file << N << "\n"; // wpisanie liczby wierzcholkow jako pierwsza liczbe w pliku
+		for (int i = 0; i < N; i++) // wiersze
 		{
 			for (int j = 0; j < N; j++) // kolumny
 			{
 				if 
 					(i == j) file << "-1\t";
 				else
-					file << rand() % 100 + 1 << "\t";
+					file << rand() % 100 + 1 << "\t"; // generowanie pseudolosowej liczby z zakresu <1-100>
 			}
 			file << "\n";
 		}
@@ -46,7 +46,7 @@ void FileHandler::generate(int N, string filename)
 	file.close();
 }
 //------------------------------------------------------------------------------------------------------------------------------------
-
+// wyswietlanie zawartosci pliku linia po linii
 void FileHandler::print(string filename)
 {
 	file.open(filename, ios::in);
